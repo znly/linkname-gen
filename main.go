@@ -127,7 +127,7 @@ func main() {
 	g.Printf("\n")
 
 	deps, err := exec.Command(
-		"go", "list", "-f", `'{{join .Imports "\n"}}'`, dir,
+		"go", "list", "-f", `{{join .Imports "\n"}}`, dir,
 	).Output()
 	if err != nil {
 		log.Fatal(err)
