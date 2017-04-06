@@ -31,7 +31,7 @@
 //		"github.com/gogo/protobuf/protoc-gen-gogo/generator"
 //	)
 //
-//	//go:linkname goTag github.com/gogo/protobuf/protoc-gen-gogo/generator
+//	//go:linkname goTag github.com/myorg/myproject/vendor/github.com/gogo/protobuf/protoc-gen-gogo/generator
 //	func goTag(*generator.Generator, *generator.Descriptor, *descriptor.FieldDescriptorProto, string) string
 //
 // With no arguments, it processes the package in the current directory.
