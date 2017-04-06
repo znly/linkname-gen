@@ -274,7 +274,7 @@ func (g *Generator) parsePackage(directory string, names []string, text interfac
 	g.pkg.files = files
 	g.pkg.dir = directory
 	// Type check the package.
-	g.pkg.check(fs, astFiles)
+	//g.pkg.check(fs, astFiles)
 }
 
 // check type-checks the package. The package must be OK to proceed.
