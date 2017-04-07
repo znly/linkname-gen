@@ -147,6 +147,10 @@ func main() {
 	funcName := strings.Split(strings.Split(*_def, " ")[1], "(")[0]
 
 	g.Printf("import _ \"%s\"\n", "unsafe")
+	// `unsafe` is imported twice in order to fix a potential edge-case
+	// when a user tries to bind to a symbol that uses the `unsafe` package
+	// in its function parameters.
+	g.Printf("import \"%s\"\n", "unsafe")
 	g.Printf("import \"%s\"\n", sym)
 	g.Printf("\n")
 	g.Printf("//go:linkname %s %s\n", funcName, *_symbol)
