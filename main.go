@@ -145,6 +145,7 @@ func main() {
 		log.Fatalf("no such symbol: `%s`", *_symbol)
 	}
 	funcName := strings.Split(strings.Split(*_def, " ")[1], "(")[0]
+	symFinal := path.Dir(symDep) + "/" + symPkg
 
 	g.Printf("import _ \"%s\"\n", "unsafe")
 	// `unsafe` is imported twice in order to fix a potential edge-case
@@ -153,7 +154,7 @@ func main() {
 	g.Printf("import \"%s\"\n", "unsafe")
 	g.Printf("import \"%s\"\n", sym)
 	g.Printf("\n")
-	g.Printf("//go:linkname %s %s\n", funcName, *_symbol)
+	g.Printf("//go:linkname %s %s\n", funcName, symFinal)
 	g.Printf("%s\n", *_def)
 
 	// Format the output.
