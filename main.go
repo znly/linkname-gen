@@ -149,7 +149,7 @@ func main() {
 	g.Printf("import _ \"%s\"\n", "unsafe")
 	g.Printf("import \"%s\"\n", sym)
 	g.Printf("\n")
-	g.Printf("//go:linkname %s %s\n", funcName, symDep)
+	g.Printf("//go:linkname %s %s\n", funcName, *_symbol)
 	g.Printf("%s\n", *_def)
 
 	// Format the output.
