@@ -25,7 +25,7 @@ import (
 	"github.com/gogo/protobuf/protoc-gen-gogo/generator"
 )
 
-//go:linkname goTag github.com/myorg/myproject/vendor/github.com/gogo/protobuf/protoc-gen-gogo/generator
+//go:linkname goTag github.com/myorg/myproject/vendor/github.com/gogo/protobuf/protoc-gen-gogo/generator.(*Generator).goTag
 func goTag(*generator.Generator, *generator.Descriptor, *descriptor.FieldDescriptorProto, string) string
 ```
 
