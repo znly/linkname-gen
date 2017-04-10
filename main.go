@@ -9,7 +9,7 @@
 //
 // Given a remote symbol and a local function definition to bind this symbol to,
 // linkname-gen will create a new self-contained Go source file implementing
-// the right go:linkname statement with the necessary imports & boilerplate.
+// the right go:linkname statement along with the necessary imports & boilerplate.
 //
 // The file is created in the same package and directory as the package that
 // defines the go:generate clause.
@@ -20,7 +20,7 @@
 //
 //	//go:generate linkname-gen -symbol "github.com/gogo/protobuf/protoc-gen-gogo/generator.(*Generator).goTag" -def "func goTag(*generator.Generator, *generator.Descriptor, *descriptor.FieldDescriptorProto, string) string"
 //
-// a sym_linkname.go file with the following content will be created:
+// a linkname_gotag.go file with the following content will be created:
 //
 //	package main
 //
@@ -38,7 +38,7 @@
 // Otherwise, the arguments must name a single directory holding a Go package
 // or a set of Go source files that represent a single Go package.
 //
-// The default output file is sym_linkname.go, it can be overridden with
+// The default output file is sym_${func_name}.go, it can be overridden with
 // the -output flag.
 package main
 
@@ -163,7 +163,7 @@ func main() {
 	// Write to file.
 	outputName := *_output
 	if outputName == "" {
-		baseName := fmt.Sprintf("%s_linkname.go", "sym")
+		baseName := fmt.Sprintf("linkname_%s.go", strings.ToLower(funcName))
 		outputName = filepath.Join(dir, strings.ToLower(baseName))
 	}
 	err = ioutil.WriteFile(outputName, src, 0644)
