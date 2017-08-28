@@ -1,0 +1,9 @@
+hash: f43a23b14386c66b0b5b6396d228116b7081c88850abd961ae47a1df3e2f168e
+updated: 2017-08-28T14:19:57.093267742+02:00
+imports:
+- name: golang.org/x/tools
+  version: 1736caf17f29e06c0475c0d334e921f1d96a6598
+  subpackages:
+  - go/ast/astutil
+  - imports
+testImports: []

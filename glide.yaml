@@ -1,0 +1,5 @@
+package: github.com/znly/linkname-gen
+import:
+- package: golang.org/x/tools
+  subpackages:
+  - imports
